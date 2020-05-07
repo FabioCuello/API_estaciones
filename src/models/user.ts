@@ -2,21 +2,20 @@ import { Schema, model, Document } from "mongoose";
 
 // Interfaces
 interface infoDocument extends Document {
-    fistname: string,
-    name: string,
+    firstName: string,
+    lastName: string,
     email: string,
     password: string
 }
 interface subcriptionsDocument extends Document {
-    alert: boolean,
+    alerts: boolean,
     newsletter: boolean
 }
 interface userDocument extends Document {
     data: infoDocument,
-    subcription: subcriptionsDocument,
+    subcriptions: subcriptionsDocument,
     admin: boolean
 }
-
 // Schema structures
 const infoSchema = new Schema({
     firstName: String,
@@ -32,6 +31,6 @@ const userSchema = new Schema({
     data: infoSchema,
     subcriptions: subscriptionSchema,
     admin: Boolean
-});
+})
 
 export const User = model<userDocument>("User", userSchema)

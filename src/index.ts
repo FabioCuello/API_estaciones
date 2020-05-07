@@ -12,7 +12,7 @@ import { createApp } from "./app"
 
         setInterval(() => { update() }, +DATA_UPDATE)
 
-        schedule.scheduleJob(RULE, () => newsletter());
+        schedule.scheduleJob(RULE, () => newsletter())
 
         const app = createApp()
 

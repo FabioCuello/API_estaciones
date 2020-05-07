@@ -6,7 +6,6 @@ interface dataPoints {
     z: any
 }
 
-
 // Create class
 class Station {
     // properties
@@ -82,8 +81,6 @@ class Station {
 
     // SECTION: emuEnergy
     async update_emuEnergy() {
-
-        // Case server down
         if (this.status != 200) return
 
         const dataPoints: Array<any> = []
@@ -135,8 +132,6 @@ class Station {
 
     // SECTION: panelEnergy
     async update_panelEnergy() {
-
-        // Case server down
         if (this.status != 200) return
 
         const dataPoints: dataPoints[] = []
@@ -151,7 +146,6 @@ class Station {
         })
         if (dataPoints.length == 0) return
 
-        // Case length != 0
         const hoydate: Date = new Date();
         const areapanel = 1.572;
         const eficiencia = 0.11;
@@ -159,10 +153,10 @@ class Station {
         let h: number
         let temp: number
         let hoy: number = hoydate.getDay()
-        for (let j = 0; j < dataPoints.length - 1; j++) {
 
+        for (let j = 0; j < dataPoints.length - 1; j++) {
             m[j] = dataPoints[j + 1].y - dataPoints[j].y
-            // Resta de minutos
+
             if (m[j] < 0) {
 
                 //Si los minutos son negativos

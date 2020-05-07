@@ -1,8 +1,8 @@
 import { RecurrenceRule } from "node-schedule"
 
 const RULE = new RecurrenceRule()
-RULE.minute = 38
-RULE.hour = 8
+RULE.minute = 0
+RULE.hour = 23
 
 export { RULE }
 

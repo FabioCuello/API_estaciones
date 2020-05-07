@@ -3,7 +3,7 @@ require("dotenv").config()
 import mongoose from "mongoose"
 import schedule from "node-schedule"
 import { update, newsletter } from "./lib/index"
-import { MONGO_URI, MONGO_OPTIONS, APP_PORT, RULE, DATA_UPDATE } from "./config/index"
+import { MONGO_URI, MONGO_OPTIONS, APP_PORT, RULE, DATA_UPDATE, APP_PROTOCOL, APP_HOSTNAME } from "./config/index"
 import { createApp } from "./app"
 
     ; (async () => {
@@ -16,6 +16,6 @@ import { createApp } from "./app"
 
         const app = createApp()
 
-        app.listen(APP_PORT, () => console.log(`http://localhost:${APP_PORT}`))
+        app.listen(APP_PORT, () => console.log(`${APP_PROTOCOL}://${APP_HOSTNAME}:${APP_PORT}`))
     })()
 

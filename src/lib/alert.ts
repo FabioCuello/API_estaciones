@@ -24,7 +24,7 @@ async function sendAlert(lastTime: number, Estacion: string, Scene: string, case
     }
 
     if (Scene == "Down" && cases == "B") {
-        output = `<h2> Se sobrepasó la capacidad de la llave de la estación ${Estacion}, por lo tanto se ha podido obtener información</h2>`
+        output = `<h2> Se sobrepasó la capacidad de la llave de la estación ${Estacion}, por lo tanto no se ha podido obtener información</h2>`
     }
 
     sendEmail(subject, receivers, output)

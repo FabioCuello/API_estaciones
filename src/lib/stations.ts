@@ -38,13 +38,15 @@ class Station {
         this.jsonResponse = jsonResponse
 
         // check response status from w.u api
-        if (this.status != 200) {
-            this.down = true
-            return alertControl(this.down, this.name)
-        }
+        // if (this.status != 200) {
+        //     this.down = true
+        //     return alertControl(this.down, this.name)
+        // }
 
-        this.down = false
-        alertControl(this.down, this.name, this.jsonResponse.observations[this.jsonResponse.observations.length - 1].obsTimeLocal)
+        if (this.status == 200) {
+            this.down = false
+            alertControl(this.down, this.name, this.jsonResponse.observations[this.jsonResponse.observations.length - 1].obsTimeLocal)
+        }
     }
 
     // SECTION: wind

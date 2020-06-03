@@ -14,7 +14,8 @@ interface subcriptionsDocument extends Document {
 interface userDocument extends Document {
     data: infoDocument,
     subcriptions: subcriptionsDocument,
-    admin: boolean
+    admin: boolean,
+    verifiedAt: Date
 }
 // Schema structures
 const infoSchema = new Schema({
@@ -30,7 +31,11 @@ const subscriptionSchema = new Schema({
 const userSchema = new Schema({
     data: infoSchema,
     subcriptions: subscriptionSchema,
-    admin: Boolean
+    admin: {
+        type: Boolean,
+        default: false
+    },
+    verifiedAt: Date
 })
 
 export const User = model<userDocument>("User", userSchema)
